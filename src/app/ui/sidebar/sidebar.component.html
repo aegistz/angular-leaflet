@@ -12,7 +12,7 @@
                 <img src="https://leafletjs.com/docs/images/logo.png" width="70%" alt="">
             </span>
         </a>
-        <ul class="list-unstyled ps-0">
+        <ul class="list-unstyled ps-0 pb-2">
             <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                     data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
@@ -20,7 +20,7 @@
                 </button>
                 <div class="collapse show" id="home-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                        <li><a href="javascript:void(0)" class="link-dark d-inline-flex text-decoration-none rounded"
                                 [routerLink]="['/index']" routerLinkActive="router-link-active">Get started</a>
                         </li>
                     </ul>
@@ -28,50 +28,75 @@
             </li>
             <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                    Dashboard
+                    data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+                    Map
                 </button>
-                <div class="collapse" id="dashboard-collapse">
+                <div class="collapse show" id="dashboard-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Weekly</a></li>
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Monthly</a></li>
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Annually</a></li>
+                        <li><a href="javascript:void(0)" [routerLink]="['/tutorials/start-guide']"
+                                routerLinkActive="router-link-active"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Quick Start Guide</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Layer Group</a>
+                        </li>
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Basemap</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Geojson</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Control</a></li>
                     </ul>
                 </div>
             </li>
             <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                    Orders
+                    data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
+                    Vector Layer
                 </button>
-                <div class="collapse" id="orders-collapse">
+                <div class="collapse show " id="orders-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New</a></li>
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Processed</a></li>
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Shipped</a></li>
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Returned</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Marker</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Circle</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Line</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Polygon</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Rectangle</a></li>
                     </ul>
                 </div>
             </li>
-            <li class="border-top my-3"></li>
             <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                    Account
+                    data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="true">
+                    UI Layer
                 </button>
-                <div class="collapse" id="account-collapse">
+                <div class="collapse show " id="account-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li>
-                        <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Sign out</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Popup</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Tooltip</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Label</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#Template" aria-expanded="true">
+                    Template
+                </button>
+                <div class="collapse  show" id="Template">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="javascript:void(0)"
+                                class="link-dark d-inline-flex text-decoration-none rounded">Choroplate Map</a></li>
                     </ul>
                 </div>
             </li>
         </ul>
-
-
         <div class="footer">
             <app-footer></app-footer>
         </div>

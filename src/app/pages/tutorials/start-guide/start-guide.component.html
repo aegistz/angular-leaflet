@@ -1,0 +1,146 @@
+<main class="container p-4">
+
+
+    <div class="row ">
+        <div class="col-md-12">
+            <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                Quick Start Guide
+            </h3>
+
+            <article class="blog-post">
+                <h2 class="blog-post-title">Introduction</h2>
+                <p>
+                    &nbsp; &nbsp; &nbsp; &nbsp; Leaflet is a JavaScript library for creating maps. It comes packed with
+                    nice features and is
+                    extremely mobile-friendly.
+
+                    You can use this library to display a map that supports zooming in and out and panning with click
+                    and drag.
+                    In this tutorial, you will learn how to integrate Leaflet into an Angular app.
+                </p>
+                <hr>
+                <h4><b>Step 1 — Setting Up the Project</b></h4>
+                <p>
+                    You can use <a href="https://www.npmjs.com/package/@angular/cli" target="_blank">@angular/cli</a> to
+                    create a new Angular Project. <br>
+                    In your terminal window, use the following command:
+                </p>
+                <div class="mb-2">
+                    <code>
+                        $ npm i @angular/cli
+                    </code>
+                </div>
+
+                <p>Creates a new Angular workspace.
+                </p>
+                <div class="mb-2">
+                    <code>
+                        $ ng new angular-leaflet
+                    </code>
+                </div>
+
+                <p>Navigate to the newly created project directory: </p>
+                <div class="mb-2">
+                    <code>
+                        $ cd angular-leaflet
+                    </code>
+                </div>
+
+                <p>Builds and serves your application, rebuilding on file changes.
+                    <small>(--open is opens the url in default
+                        browser.)</small>
+                </p>
+                <div class="mb-2">
+                    <code>
+                        $ ng serve --open
+                    </code>
+                </div>
+
+                <img src="assets/img/ng-new.png" width="70%" alt="">
+
+
+                <hr>
+                <h4><b>Step 2 — Creating the Map Component</b></h4>
+                <p>
+                    &nbsp; &nbsp; &nbsp; &nbsp;Leaflet is designed with simplicity, performance and usability in mind.
+                    It works
+                    efficiently across
+                    all major desktop and mobile platforms out of the box, taking advantage of HTML5 and CSS3 on modern
+                    browsers while being accessible on older ones too. It can be extended with a huge amount of plugins,
+                    has a beautiful, easy to use and well-documented API and a simple, readable source code that is a
+                    joy to contribute to.
+                </p>
+                <p>Install leaflet packag
+                </p>
+                <div class="mb-2">
+                    <code>
+                        $ npm i leaflet
+                    </code>
+                </div>
+
+
+
+                <p> Now, Create the custom map component
+                </p>
+                <div class="mb-2">
+                    <code>
+                        $ ng generate component map
+                    </code>
+                </div>
+                <p>This command will produce four new files: <b class="code">map.component.css</b> , <b
+                        class="code">map.component.html</b> ,
+                    and
+                    <b class="code">map.component.ts</b> . It will also update the <b class="code">app.module.ts</b>
+                    file to use this new
+                    component.
+
+                </p>
+
+
+                <div class="mb-2 block-code">
+                    <code>
+                      <b class="highlight">import {{'{'}} MapComponent {{'}'}} from './map/map.component';</b>   <br>
+                            <br>
+                        @NgModule( {{'{'}} <br>
+                          declarations: [ <br>
+                            ... <br>
+                           <b class="highlight">MapComponent</b>   <br>
+                           ...  <br>
+                          ]
+                          {{'}'}}   ) <br>
+                    </code>
+                </div>
+
+
+
+                <p>
+                    Next, open <b class="code">app-routing.module.ts</b> and define your routes in array.
+                    code:
+                </p>
+                <div class="mb-2 block-code">
+                    <code>
+                        const routes: Routes = [ <br>
+                        <b class="highlight">   {{'{'}} path: 'map', component: MapComponent  {{'}'}}, </b> <br>
+                        <b class="highlight">   {{'{'}} path: '', redirectTo: '/map', pathMatch: 'full'  {{'}'}} </b> <br>
+                        ];
+                    </code>
+                </div>
+
+
+
+
+
+                <p>
+                    Next, open <b class="code">map.component.ts</b> and replace the content with the following lines of
+                    code:
+                </p>
+
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</main>

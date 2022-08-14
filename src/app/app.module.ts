@@ -8,6 +8,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { GetStartedComponent } from './pages/get-started/get-started.component';
 import { HeaderComponent } from './ui/header/header.component';
 import { FooterComponent } from './ui/footer/footer.component';
+import { StartGuideComponent } from './pages/tutorials/start-guide/start-guide.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './ui/footer/footer.component';
     IndexComponent,
     GetStartedComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    StartGuideComponent
   ],
   imports: [
     BrowserModule,
