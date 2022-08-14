@@ -74,7 +74,7 @@
                 </p>
                 <div class="mb-2">
                     <code>
-                        $ npm i leaflet
+                        $ npm i  @types/leaflet --save-dev
                     </code>
                 </div>
 
@@ -95,8 +95,6 @@
                     component.
 
                 </p>
-
-
                 <div class="mb-2 block-code">
                     <code>
                       <b class="highlight">import {{'{'}} MapComponent {{'}'}} from './map/map.component';</b>   <br>
@@ -112,7 +110,6 @@
                 </div>
 
 
-
                 <p>
                     Next, open <b class="code">app-routing.module.ts</b> and define your routes in array.
                     code:
@@ -125,15 +122,94 @@
                         ];
                     </code>
                 </div>
-
-
+                <p>
+                    Next, open <b class="code">app.component.ts</b> and replace the content with the following lines of
+                    code:
+                </p>
+                <div class="mb-2 block-code">
+                    <code>
+                        &lt;router-outlet> &lt;/router-outlet>
+                    </code>
+                </div>
 
 
 
                 <p>
-                    Next, open <b class="code">map.component.ts</b> and replace the content with the following lines of
+                    Then, open <b class="code">map.component.ts</b> and replace the content with the following lines of
                     code:
                 </p>
+                <div class="mb-2 block-code">
+                    <code>
+
+                        &lt;div class="container"> <br>
+                        &nbsp; &nbsp; &lt;div id="map">   &lt;/div> <br>
+                        &lt;/div>
+                    </code>
+                </div>
+                <p>
+                    It will also create a <b class="code">div</b> with the <b class="code">id</b> of <b
+                        class="code">#map</b>. Using an id instead of a class here is important
+                    because Leaflet will expect an id to be passed to it for placing the map.
+                    <br>
+                    Then, open <b class="code"> map.component.css</b> and replace the content with the following lines
+                    of code:
+                </p>
+                <div class="mb-2 block-code">
+                    <code>
+                        .container  {{'{'}} <br>
+                        &nbsp; &nbsp;   position: absolute; <br>
+                        &nbsp; &nbsp;  top: 0; <br>
+                        &nbsp; &nbsp;  left: 0; <br>
+                        &nbsp; &nbsp;   right: 0; <br>
+                        &nbsp; &nbsp;  bottom: 0; <br>
+                        &nbsp; &nbsp;  margin: 30px; <br>
+                        {{'}'}} <br>
+                        #map  {{'{'}} <br>
+                        &nbsp; &nbsp;  height: 100%; <br>
+                        &nbsp; &nbsp;  border-radius: 10px; <br>
+                        {{'}'}}
+                    </code>
+                </div>
+
+                <p>
+                    Next, open up <b class="code">map.component.ts</b> and import the Leaflet package:
+                </p>
+                <div class="mb-2 block-code">
+                    <code>
+                        import {{'{'}} Component, OnInit {{'}'}} from '@angular/core'; <br>
+                        <b class="highlight"> import * as L from 'leaflet'; </b> <br>
+                        <br>
+                        @Component({{'{'}} <br>
+                        &nbsp; &nbsp;  selector: 'app-map',<br>
+                        &nbsp; &nbsp; templateUrl: './map.component.html',  <br>
+                        &nbsp; &nbsp; styleUrls: ['./map.component.css'] <br>
+                        {{'}'}}) <br>
+                        export class MapComponent implements OnInit {{'{'}} <br>
+                         &nbsp; &nbsp;  <b class="highlight"> public map: any</b> <br>
+                        <br>
+                      &nbsp; &nbsp;  constructor() {{'{'}} {{'}'}} <br>
+                        <br>
+                        &nbsp; &nbsp;  ngOnInit(): void {{'{'}} <br>
+                        &nbsp; &nbsp;&nbsp; &nbsp;    <b class="highlight"> this.map = L.map('map').setView([51.505, -0.09], 13); </b> <br>
+                        &nbsp; &nbsp;&nbsp; &nbsp;   <b class="highlight"> L.tileLayer('https://{{'{'}}s}.tile.openstreetmap.org/{{'{'}}z{{'}'}}/{{'{'}}x{{'}'}}/{{'{'}}y{{'}'}}.png', {{'{'}} </b>   <br>
+                        &nbsp; &nbsp;&nbsp; &nbsp;   <b class="highlight"> maxZoom: 19,</b>   <br>
+                        &nbsp; &nbsp;&nbsp; &nbsp;   <b class="highlight"> attribution: '© OpenStreetMap' </b>  <br>
+                        &nbsp; &nbsp;&nbsp; &nbsp;   <b class="highlight"> }).addTo(this.map); </b> <br>
+                        &nbsp; &nbsp;   {{'}'}} <br>
+                            <br>
+                            {{'}'}} <br>
+
+                    </code>
+                </div>
+
+                <p>Open up <b class="code">style.css</b> and import url css leaflet with the following lines of
+                    code:</p>
+                <div class="mb-2 block-code">
+                    <code>
+                        @import url('../node_modules/leaflet/dist/leaflet.css');
+                        </code>
+                </div>
+                <img src="assets/img/leaflet-map.png" width="70%" alt="">
 
 
             </article>
