@@ -9,6 +9,8 @@ import { GetStartedComponent } from './pages/get-started/get-started.component';
 import { HeaderComponent } from './ui/header/header.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { StartGuideComponent } from './pages/tutorials/start-guide/start-guide.component';
+import { LayerGroupComponent } from './pages/tutorials/layer-group/layer-group.component';
+import { LayerBasemapComponent } from './pages/tutorials/layer-basemap/layer-basemap.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { StartGuideComponent } from './pages/tutorials/start-guide/start-guide.c
     GetStartedComponent,
     HeaderComponent,
     FooterComponent,
-    StartGuideComponent
+    StartGuideComponent,
+    LayerGroupComponent,
+    LayerBasemapComponent
   ],
   imports: [
     BrowserModule,
