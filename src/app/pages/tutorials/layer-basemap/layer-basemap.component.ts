@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
+import { WebserviceService } from 'src/app/service/webservice.service';
 
 @Component({
   selector: 'app-layer-basemap',
@@ -10,49 +11,13 @@ export class LayerBasemapComponent implements OnInit {
   public map: any
   basemap: any = {}
   layer_group: any
-  public list_basemap = [
-    {
-      name: 'OpenStreetMap.Mapnik',
-      url: `L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      });`,
-      tileLayer: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-    }, {
-      name: 'OpenStreetMap.DE',
-      url: `L.tileLayer('https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      });`,
-      tileLayer: 'https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png'
-    }, {
-      name: 'OpenStreetMap.CH',
-      url: `L.tileLayer('https://tile.osm.ch/switzerland/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        bounds: [[45, 5], [48, 11]]
-      });`,
-      tileLayer: 'https://tile.osm.ch/switzerland/{z}/{x}/{y}.png'
-    }, {
-      name: 'OpenStreetMap.France',
-      url: `L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-        maxZoom: 20,
-        attribution: '&copy; OpenStreetMap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      });`,
-      tileLayer: 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png'
-    }, {
-      name: 'OpenStreetMap.BZH',
-      url: `L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles courtesy of <a href="http://www.openstreetmap.bzh/" target="_blank">Breton OpenStreetMap Team</a>',
-        bounds: [[46.2, -5.5], [50, 0.7]]
-      });`,
-      tileLayer: 'https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png'
-    },
-  ]
+  list_basemap: any
 
-  constructor() {
-    this.basemap = this.list_basemap[0]
+  constructor(
+    public webservice: WebserviceService
+  ) {
+    this.list_basemap = this.webservice.list_basemap
+    this.basemap = this.webservice.list_basemap[0]
   }
 
   ngOnInit(): void {
