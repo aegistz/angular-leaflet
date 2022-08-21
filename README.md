@@ -60,7 +60,7 @@ const routes: Routes = [
 
 Next, open `app.component.ts` and replace the content with the following lines of code:
 
-```typescript
+```html
 <router-outlet> </router-outlet>
 ```
 
@@ -123,6 +123,6 @@ Open up `style.css` and import url css leaflet with the following lines of code:
 @import url('../node_modules/leaflet/dist/leaflet.css');
 ```
 
-![leaflet](https://aegistz.github.io/angular-leaflet/assets/img/leaflet-map.png)
 
+![leaflet](https://aegistz.github.io/angular-leaflet/assets/img/leaflet-map.png)
 
