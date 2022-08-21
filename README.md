@@ -1,12 +1,57 @@
-# Angular Leaflet
+# Quick Start Guide
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
+   Angular is a development platform, built on TypeScript. As a platform, Angular includes:
+  A component-based framework for building scalable web applications
+  A collection of well-integrated libraries that cover a wide variety of features, including routing, forms management, client-server communication, and more
+  A suite of developer tools to help you develop, build, test, and update your code
+With Angular, you're taking advantage of a platform that can scale from single-developer projects to enterprise-level applications. Angular is designed to make updating as straightforward as possible, so take advantage of the latest developments with a minimum of effort. Best of all, the Angular ecosystem consists of a diverse group of over 1.7 million developers, library authors, and content creators.
 
-## Development server
+## Step 1 — Setting Up the Project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+You can use [@angular/cli](https://angular.io/cli) to create a new Angular Project. In your terminal window, use the following command:
 
-## Code scaffolding
+`$ npm i @angular/cli`
+
+Creates a new Angular workspace.
+
+`$ ng new angular-leaflet`
+
+Navigate to the newly created project directory:
+
+`$ cd angular-leaflet`
+
+Builds and serves your application, rebuilding on file changes. (--open is opens the url in default browser.)
+
+`$ ng serve --open`
+
+## Step 2 — Creating the Map Component
+
+Install leaflet packag
+
+`$ npm i @types/leaflet --save-dev`
+Now, Create the custom map component
+
+`$ ng generate component map`
+This command will produce four new files: map.component.css , map.component.html , and map.component.ts . It will also update the app.module.ts file to use this new component.
+
+```typescript
+import { MapComponent } from './map/map.component';
+
+@NgModule( {
+declarations: [
+...
+MapComponent
+...
+] } )
+```
+
+
+
+
+
+
+
+
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
