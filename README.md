@@ -24,6 +24,9 @@ Builds and serves your application, rebuilding on file changes. (--open is opens
 
 `$ ng serve --open`
 
+![angular](https://aegistz.github.io/angular-leaflet/assets/img/ng-new.png)
+
+
 ## Step 2 — Creating the Map Component
 
 Install leaflet packag
@@ -32,7 +35,8 @@ Install leaflet packag
 Now, Create the custom map component
 
 `$ ng generate component map`
-This command will produce four new files: map.component.css , map.component.html , and map.component.ts . It will also update the app.module.ts file to use this new component.
+
+This command will produce four new files: `map.component.css` , `map.component.html` , and `map.component.ts` . It will also update the `app.module.ts` file to use this new component.
 
 ```typescript
 import { MapComponent } from './map/map.component';
@@ -45,28 +49,80 @@ MapComponent
 ] } )
 ```
 
+Next, open `app-routing.module.ts` and define your routes in array. code:
+
+```typescript
+const routes: Routes = [
+{ path: 'map', component: MapComponent },
+{ path: '', redirectTo: '/map', pathMatch: 'full' }
+];
+```
+
+Next, open `app.component.ts` and replace the content with the following lines of code:
+
+```typescript
+<router-outlet> </router-outlet>
+```
+
+Then, open `map.component.ts` and replace the content with the following lines of code:
+
+```html
+<div class="container">
+    <div id="map"> </div>
+</div>
+```
+
+It will also create a div with the id of `#map`. Using an id instead of a class here is important because Leaflet will expect an id to be passed to it for placing the map.
+
+Then, open `map.component.css` and replace the content with the following lines of code:
+
+```css
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 30px;
+}
+#map {
+    height: 100%;
+    border-radius: 10px;
+}
+```
+
+Next, open up `map.component.ts` and import the Leaflet package:
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import * as L from 'leaflet';
+
+@Component({
+    selector: 'app-map',
+    templateUrl: './map.component.html',
+    styleUrls: ['./map.component.css']
+})
+export class MapComponent implements OnInit {
+    public map: any
+
+    constructor() { }
+
+    ngOnInit(): void {
+       this.map = L.map('map').setView([51.505, -0.09], 13);
+       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+       maxZoom: 19,
+       attribution: '© OpenStreetMap'
+       }).addTo(this.map);
+    }
+}
+```
+
+Open up `style.css` and import url css leaflet with the following lines of code:
+
+```typescript
+@import url('../node_modules/leaflet/dist/leaflet.css');
+```
+
+![leaflet](https://aegistz.github.io/angular-leaflet/assets/img/leaflet-map.png)
 
 
-
-
-
-
-
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
