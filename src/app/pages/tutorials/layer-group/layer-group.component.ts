@@ -51,10 +51,6 @@ export class LayerGroupComponent implements OnInit {
       }
     ).addTo(this.map);
 
-    const fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"];
-    console.log(fruits.splice(0, 1));
-
-
   }
 
 }

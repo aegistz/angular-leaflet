@@ -13,88 +13,19 @@
             </span>
         </a>
         <ul class="list-unstyled ps-0 pb-2">
-            <li class="mb-1">
+            <li class="mb-1" *ngFor="let item of list_menu; let i=index">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                    Overview
+                    data-bs-toggle="collapse" attr.data-bs-target="#collapse_{{i}}" aria-expanded="true">
+                    {{item.group_name}}
                 </button>
-                <div class="collapse show" id="home-collapse">
+                <div class="collapse show" id="collapse_{{i}}">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="javascript:void(0)" class="link-dark d-inline-flex text-decoration-none rounded"
-                                [routerLink]="['/index']" routerLinkActive="router-link-active">Get started</a>
+                        <li *ngFor="let items of item.li; let i=index">
+                            <a href="javascript:void(0)" (click)="set_menu(items)"
+                                [ngClass]="{'link-primary': get_menu == items.link  ,  'link-dark': get_menu != items.link }"
+                                class=" d-inline-flex text-decoration-none rounded" [routerLink]="[items.link]"
+                                routerLinkActive="router-link-active">{{items.name_menu}}</a>
                         </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
-                    Map
-                </button>
-                <div class="collapse show" id="dashboard-collapse">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="javascript:void(0)" [routerLink]="['/tutorials/start-guide']"
-                                routerLinkActive="router-link-active"
-                                class="link-dark d-inline-flex text-decoration-none rounded">Quick Start Guide</a></li>
-                        <li><a href="javascript:void(0)" class="link-primary d-inline-flex text-decoration-none rounded"
-                                [routerLink]="['/tutorials/layer-group']" routerLinkActive="router-link-active">Layer
-                                Group</a>
-                        </li>
-                        <li><a href="javascript:void(0)" class="link-dark d-inline-flex text-decoration-none rounded"
-                                [routerLink]="['/tutorials/layer-basemap']"
-                                routerLinkActive="router-link-active">Basemap</a></li>
-                        <li><a href="javascript:void(0)"
-                                class="link-dark d-inline-flex text-decoration-none rounded">Geojson</a></li>
-                        <li><a href="javascript:void(0)"
-                                class="link-dark d-inline-flex text-decoration-none rounded">Control</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
-                    Vector Layer
-                </button>
-                <div class="collapse show " id="orders-collapse">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="javascript:void(0)"
-                                class="link-dark d-inline-flex text-decoration-none rounded">Marker</a></li>
-                        <li><a href="javascript:void(0)"
-                                class="link-dark d-inline-flex text-decoration-none rounded">Circle</a></li>
-                        <li><a href="javascript:void(0)"
-                                class="link-dark d-inline-flex text-decoration-none rounded">Line</a></li>
-                        <li><a href="javascript:void(0)"
-                                class="link-dark d-inline-flex text-decoration-none rounded">Polygon</a></li>
-                        <li><a href="javascript:void(0)"
-                                class="link-dark d-inline-flex text-decoration-none rounded">Rectangle</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="true">
-                    UI Layer
-                </button>
-                <div class="collapse show " id="account-collapse">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="javascript:void(0)"
-                                class="link-dark d-inline-flex text-decoration-none rounded">Popup</a></li>
-                        <li><a href="javascript:void(0)"
-                                class="link-dark d-inline-flex text-decoration-none rounded">Tooltip</a></li>
-                        <li><a href="javascript:void(0)"
-                                class="link-dark d-inline-flex text-decoration-none rounded">Label</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#Template" aria-expanded="true">
-                    Template
-                </button>
-                <div class="collapse  show" id="Template">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="javascript:void(0)"
-                                class="link-dark d-inline-flex text-decoration-none rounded">Choroplate Map</a></li>
                     </ul>
                 </div>
             </li>
