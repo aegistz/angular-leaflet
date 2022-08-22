@@ -9,10 +9,95 @@
             <p>
                 Used to group several layers and handle them as one. If you add it to the map, any layers added or
                 removed from the group will be added/removed on the map as well. Extends Layer.
-
-
             </p>
             <div id="map"></div>
+
+            <p>
+                Let’s suppose you have a bunch of layers you want to combine into a group to handle them as one in your
+                code:
+            </p>
+
+            <div class="mb-2 block-code">
+                <code>
+                    var mLittleton = L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.').addTo(cities); <br>
+                    var mDenver = L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.').addTo(cities); <br>
+                    var mAurora = L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities); <br>
+                    var mGolden = L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.').addTo(cities);
+                </code>
+            </div>
+
+
+            <p>
+                Instead of adding them directly to the map, you can do the following, using the LayerGroup class:
+            </p>
+            <div class="mb-2 block-code">
+                <code>
+                    var cities = L.layerGroup().addTo(this.map)
+                </code>
+            </div>
+
+            <p>
+                Easy enough! Now you have a cities layer that combines your city markers into one layer you can add or
+                remove from the map at once.
+            </p>
+
+
+            <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                Layers Control
+            </h3>
+            <p>
+                Leaflet has a nice little control that allows your users to control which layers they see on your map.
+                In addition to showing you how to use it, we’ll also show you another handy use for layer groups. <br>
+                <br>
+                There are two types of layers: (1) base layers that are mutually exclusive (only one can be visible on
+                your map at a time), e.g. tile layers, and (2) overlays, which are all the other stuff you put over the
+                base layers. In this example, we want to have two base layers (a grayscale and a colored base map) to
+                switch between, and an overlay to switch on and off: the city markers we created earlier.
+                <br> <br>
+                Now let’s create those base layers and add the default ones to the map:
+            </p>
+
+
+            <div class="mb-2 block-code">
+                <code>
+
+                    var google_map = L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={{'{'}}x}&y={{'{'}}y}&z={{'{'}}z}', <br> {{'{'}} maxZoom: 19, <br> attribution: 'Google Maps' });
+<br> <br>
+                    var Google_Hybrid = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={{'{'}}x}&y={{'{'}}y}&z={{'{'}}z}', <br> {{'{'}} maxZoom: 19, <br> attribution: 'Google Hybrid' });
+                </code>
+            </div>
+            <div class="mb-2 block-code">
+                <code>
+                    var baseLayers = {{'{'}} <br>
+                        'Google Hybrid': Google_Hybrid.addTo(this.map), <br>
+                        'Google Map': google_map <br>
+                      }; <br>
+                      <br>
+                      var overlays = {{'{'}}  <br>
+                        'Cities': cities <br>
+                      };
+                </code>
+            </div>
+
+            <p>Now, all that’s left to do is to create a Layers Control and add it to the map. The first argument passed
+                when creating the layers control is the base layers object. The second argument is the overlays object.
+                Both arguments are optional: you can pass just a base layers object by omitting the second argument, or
+                just an overlays objects by passing null as the first argument. In each case, the omitted layer type
+                will not appear for the user to select.
+            </p>
+
+            <div class="mb-2 block-code">
+                <code>
+                    var layerControl = L.control.layers(baseLayers, overlays,  <br>
+                    {{'{'}}  <br>
+                      collapsed: false, // true , false  <br>
+                      position: 'bottomleft' // 'topleft', 'topright', 'bottomleft' or 'bottomright' <br>
+                    } <br>
+                  ).addTo(this.map);
+
+                </code>
+            </div>
+
         </div>
     </div>
 </main>
