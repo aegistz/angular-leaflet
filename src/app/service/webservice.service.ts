@@ -6,6 +6,48 @@ import { Injectable } from '@angular/core';
 export class WebserviceService {
   public list_basemap = [
     {
+      name: 'Google Maps',
+      url: `L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {
+        maxZoom: 19,
+        attribution: 'Google Maps'
+      });`,
+      tileLayer: 'https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}'
+    }, {
+      name: 'Google Roads',
+      url: `L.tileLayer('https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', {
+        maxZoom: 19,
+        attribution: 'Google Roads'
+      });`,
+      tileLayer: 'https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}'
+    }, {
+      name: 'Google Satellite',
+      url: `L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+        maxZoom: 19,
+        attribution: 'Google Satellite'
+      });`,
+      tileLayer: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
+    }, {
+      name: 'Google Hybrid',
+      url: `L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+        maxZoom: 19,
+        attribution: 'Google Hybrid'
+      });`,
+      tileLayer: 'https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'
+    }, {
+      name: 'Google Terrain',
+      url: `L.tileLayer('https://mt1.google.com/vt/lyrs=t&x={x}&y={y}&z={z}', {
+        maxZoom: 19,
+        attribution: 'Google Terrain'
+      });`,
+      tileLayer: 'https://mt1.google.com/vt/lyrs=t&x={x}&y={y}&z={z}'
+    }, {
+      name: 'Google Traffic',
+      url: `L.tileLayer('https://mt1.google.com/vt/lyrs=m@221097413,traffic&x={x}&y={y}&z={z}', {
+        maxZoom: 19,
+        attribution: 'Google Traffic'
+      });`,
+      tileLayer: 'https://mt1.google.com/vt/lyrs=m@221097413,traffic&x={x}&y={y}&z={z}'
+    }, {
       name: 'OpenStreetMap.Mapnik',
       url: `L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,

@@ -12,6 +12,7 @@ export class LayerBasemapComponent implements OnInit {
   basemap: any = {}
   layer_group: any
   list_basemap: any
+  current_layer: any = 'Google Maps'
 
   constructor(
     public webservice: WebserviceService
@@ -27,9 +28,9 @@ export class LayerBasemapComponent implements OnInit {
     });
 
     this.layer_group = L.layerGroup().addTo(this.map)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {
       maxZoom: 19,
-      attribution: '© OpenStreetMap'
+      attribution: 'Google Maps'
     }).addTo(this.layer_group)
   }
 
@@ -39,7 +40,7 @@ export class LayerBasemapComponent implements OnInit {
     L.tileLayer(item.tileLayer, {
       maxZoom: 19,
     }).addTo(this.layer_group)
-
+    this.current_layer = item.name
   }
 
 }

@@ -22,7 +22,8 @@
                 <div class="list-group list-group-flush border-bottom scrollarea" *ngFor="let item of list_basemap">
 
                     <a href="javascript:void(0)" class="list-group-item list-group-item-action  py-3 lh-tight"
-                        (click)="get_basemap(item)" aria-current="true">
+                        [ngClass]="{'active': current_layer == item.name}" (click)="get_basemap(item)"
+                        aria-current="true">
                         <div class="d-flex w-100 align-items-center justify-content-between">
                             <strong class="mb-1"> <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                 {{item.name}}</strong>
